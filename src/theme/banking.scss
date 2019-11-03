@@ -3,17 +3,10 @@
     --background: var(--ion-color-light);
 }
 
-.welcome-card img {
-    max-height: 35vh;
-    overflow: hidden;
-  }
-  
 .row-cards {
     flex-wrap: nowrap;
     padding: 20px;
     overflow-y: scroll;
-
-    
 
     .card {
         border-radius: 10px;
@@ -58,13 +51,9 @@
     --background: linear-gradient(48deg, rgba(150,235,221,1) 0%, rgba(116,207,104,1) 100%);
 }
 
-
-
 .list-transactions {
     background: none;
     --background: none;
-
-    
 
     ion-item {
         border-radius: 10px;

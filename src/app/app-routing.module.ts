@@ -14,7 +14,11 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
-  }
+  },
+  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
+  { path: 'about', loadChildren: './about/about.module#AboutPageModule' },
+  { path: 'chooser', loadChildren: './chooser/chooser.module#ChooserPageModule' },
+  { path: 'single-group', loadChildren: './single-group/single-group.module#SingleGroupPageModule' }
 ];
 
 @NgModule({
