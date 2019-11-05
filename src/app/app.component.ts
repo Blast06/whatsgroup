@@ -22,12 +22,7 @@ export class AppComponent {
       icon: 'log-in'
     },
     {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
-    },
-    {
-      title: 'Chooser',
+      title: 'Busca por pais',
       url: '/chooser',
       icon: 'list'
     },
@@ -35,6 +30,11 @@ export class AppComponent {
       title: 'About',
       url: '/about',
       icon: 'information-circle-outline'
+    },
+    {
+      title: 'Subir grupo',
+      url: '/upload',
+      icon: 'cloud-upload'
     }
   ];
 

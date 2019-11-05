@@ -26,7 +26,7 @@
     <ion-grid class="ion-no-padding">
       <ion-row>
         <ion-col size="6">
-          <div class="text-12pt">Busca por categoria</div>
+          <div class="text-12pt">Categorias</div>
         </ion-col>
         <ion-col size="6">
           <div class="text-10pt ion-text-right text-warning" [routerLink]="['/chooser']" >See all</div>
@@ -35,32 +35,8 @@
 
       <ion-row class="ion-no-padding">
 
-        <ion-col size="3" class="ion-no-padding ion-text-center">
-          <ion-thumbnail class="center-thumbnail">
-            <img src="https://image.flaticon.com/icons/svg/2038/2038035.svg" />
-          </ion-thumbnail>
-          <div class="text-10pt">App</div>
-        </ion-col>
-
-        <ion-col size="3" class="ion-no-padding ion-text-center">
-          <ion-thumbnail class="center-thumbnail">
-            <img src="https://image.flaticon.com/icons/svg/2038/2038008.svg" />
-          </ion-thumbnail>
-          <div class="text-10pt">Buildings</div>
-        </ion-col>
-
-        <ion-col size="3" class="ion-no-padding ion-text-center">
-          <ion-thumbnail class="center-thumbnail">
-            <img src="https://image.flaticon.com/icons/svg/2038/2038009.svg" />
-          </ion-thumbnail>
-          <div class="text-10pt">ATM</div>
-        </ion-col>
-
-        <ion-col size="3" class="ion-no-padding ion-text-center">
-          <ion-thumbnail class="center-thumbnail">
-            <img src="https://image.flaticon.com/icons/svg/2038/2038214.svg" />
-          </ion-thumbnail>
-          <div class="text-10pt">Cabin</div>
+        <ion-col size="3" *ngFor="let group of groups">
+            <app-category-card [category]="group"></app-category-card>
         </ion-col>
 
       </ion-row>
@@ -85,26 +61,31 @@
     <ion-grid class="ion-no-padding">
       <ion-row>
 
+        <!-- as is until it gets dynamic -->
+        <ion-col size="6" class="ion-no-padding">
+          <app-group-card [routerLink]="['/single-group']" ></app-group-card>
+        </ion-col>
+
+        <ion-col size="6" class="ion-no-padding">
+          <app-group-card [routerLink]="['/single-group']" ></app-group-card>
+        </ion-col>
+
+        <ion-col size="6" class="ion-no-padding">
+          <app-group-card [routerLink]="['/single-group']" ></app-group-card>
+        </ion-col>
         
-
         <ion-col size="6" class="ion-no-padding">
-          <app-group-card></app-group-card>
-        </ion-col>
-
-        <ion-col size="6" class="ion-no-padding">
-          <app-group-card></app-group-card>
-        </ion-col>
-
-        <ion-col size="6" class="ion-no-padding">
-          <app-group-card></app-group-card>
-        </ion-col>
-        
-        <ion-col size="6" class="ion-no-padding">
-          <app-group-card></app-group-card>
+          <app-group-card [routerLink]="['/single-group']" ></app-group-card>
         </ion-col>
 
       </ion-row>
     </ion-grid>
   </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" [routerLink]="['/upload']">
+      <ion-fab-button color="primary" size="small">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
   
 </ion-content>

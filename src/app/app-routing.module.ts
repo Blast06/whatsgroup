@@ -18,7 +18,8 @@ const routes: Routes = [
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'about', loadChildren: './about/about.module#AboutPageModule' },
   { path: 'chooser', loadChildren: './chooser/chooser.module#ChooserPageModule' },
-  { path: 'single-group', loadChildren: './single-group/single-group.module#SingleGroupPageModule' }
+  { path: 'single-group', loadChildren: './single-group/single-group.module#SingleGroupPageModule' },
+  { path: 'upload', loadChildren: './upload/upload.module#UploadPageModule' }
 ];
 
 @NgModule({

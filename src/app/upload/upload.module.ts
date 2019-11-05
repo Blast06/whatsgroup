@@ -5,14 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { SingleGroupPage } from './single-group.page';
-import { RelatedsComponent } from '../components/relateds/relateds.component';
-import { ComponentsModule } from '../components/components.module';
+import { UploadPage } from './upload.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: SingleGroupPage
+    component: UploadPage
   }
 ];
 
@@ -21,9 +19,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    ComponentsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [SingleGroupPage]
+  declarations: [UploadPage]
 })
-export class SingleGroupPageModule {}
+export class UploadPageModule {}

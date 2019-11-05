@@ -7,9 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SingleGroupPage implements OnInit {
 
+
+  // TODO
+  // THIS VAR WILL CHANGE ITS COLOR DEPENDING ON WHAT PLATFORM IS THE GROUP(FB,WS,TELEGRAM,DISCORD)
+  buttonColor = 'red';
   constructor() { }
 
   ngOnInit() {
+  }
+
+  goTo() {
+    console.log('hola grupo');
+  }
+
+  btnActivate(ionicButton: any) {
+      if (ionicButton === 'primary') {
+        ionicButton.color = 'secondary';
+      } else {
+        ionicButton.color = 'dark';
+      }
   }
 
 }
