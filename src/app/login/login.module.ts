@@ -6,6 +6,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { LoginPage } from './login.page';
+import { httpInterceptorsProviders } from '../interceptors';
+import { IonicStorageModule, Storage } from '@ionic/storage';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from '../services/auth.service';
+import { StorageService } from '../services/storage.service';
+import { HttpService } from '../services/http.service';
+
 
 const routes: Routes = [
   {
@@ -20,9 +27,9 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [FormBuilder],
+  providers: [FormBuilder, StorageService, AuthService, HttpService],
   declarations: [LoginPage]
 })
 export class LoginPageModule {}

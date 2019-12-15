@@ -8,8 +8,14 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-
+import { IonicStorageModule } from '@ionic/storage';
 import { AppComponent } from './app.component';
+import { httpInterceptorsProviders } from './interceptors';
+
+import { HttpService } from './services/http.service';
+import { StorageService } from './services/storage.service';
+
+// providers
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,13 +23,15 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
+    IonicStorageModule.forRoot(),
     AppRoutingModule,
     HttpClientModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    HttpClientModule,
+    httpInterceptorsProviders,
+    HttpService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
