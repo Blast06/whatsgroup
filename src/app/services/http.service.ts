@@ -6,6 +6,7 @@ import { environment } from '../../environments/environment';
     providedIn: 'root'
 })
 export class HttpService {
+
     constructor(private http: HttpClient) { }
 
     /**
@@ -17,13 +18,15 @@ export class HttpService {
      * a name of every routename(serviceName) is gonna be passed to be added at the end of the main URL(the only thing that does not change)
      * and the data type that will be returned
      */
-
-     // TODO - IMPLEMENT HTTP_INTERCEPTORS
     post(serviceName: string, data: any) {
-        const headers = new HttpHeaders();
-        const options = { headers: headers, withCredintials: false };
         const url = environment.apiUrl + serviceName;
 
-        return this.http.post(url, JSON.stringify(data), options);
+        return this.http.post(url,  JSON.stringify(data));
+    }
+
+    get(serviceName: string, data: any) {
+        const url = environment.apiUrl + serviceName;
+
+        return this.http.get(url, data);
     }
 }
