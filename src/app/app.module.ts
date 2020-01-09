@@ -14,8 +14,12 @@ import { httpInterceptorsProviders } from './interceptors';
 
 import { HttpService } from './services/http.service';
 import { StorageService } from './services/storage.service';
+import { LoginPageModule } from './login/login.module';
+import { AuthService } from './services/auth.service';
+import { Storage } from '@capacitor/core';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
-// providers
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,11 +29,12 @@ import { StorageService } from './services/storage.service';
     IonicModule.forRoot(),
     IonicStorageModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    NativeStorage,
     httpInterceptorsProviders,
     HttpService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

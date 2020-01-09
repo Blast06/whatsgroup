@@ -5,6 +5,7 @@ import { HttpService } from './http.service';
 import { StorageService } from './storage.service';
 import { AuthConstants } from '../config/auth-constant';
 import { environment } from '../../environments/environment';
+import { LoginPageModule } from '../login/login.module';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,6 @@ export class AuthService {
     private router: Router
   ) { }
 
- 
   login(username: any, password: any): Observable<any> {
 
     let body = {

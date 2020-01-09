@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   apiUrl: 'http://127.0.0.1:8000/',
   client_id: 2,
-  client_secret: 'leDKWKzPnhi35VqPB1Xki0hPoHYxVKEIFaeaVaKB'
+  client_secret: 'PQIEU6cINxBc0Ka1P8yko7dlXvG5YWknLkz8oMG4'
 };
 
 /*

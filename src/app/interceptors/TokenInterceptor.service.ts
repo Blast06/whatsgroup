@@ -6,8 +6,6 @@ import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from
 import { StorageService } from '../services/storage.service';
 import { AuthConstants } from '../config/auth-constant';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -19,10 +17,10 @@ export class TokenInterceptorService implements HttpInterceptor, CanActivate {
         .then(res => {
           if (res) {
             resolve(true);
-            console.log('si hay token');
+            console.log('si hay token ve al home');
           } else {
             this.router.navigate(['login']);
-            console.log('no hay token');
+            console.log('no hay token anda al login');
             resolve(false);
           }
         })

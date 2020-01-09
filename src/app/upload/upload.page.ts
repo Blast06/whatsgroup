@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Storage } from '@ionic/storage';
 import { AuthConstants } from '../config/auth-constant';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-upload',
@@ -9,15 +9,19 @@ import { AuthConstants } from '../config/auth-constant';
 })
 export class UploadPage implements OnInit {
 
-  constructor(private storage: Storage) { }
+  token: string;
+
+  constructor(private _storage: StorageService) { }
 
   ngOnInit() {
-    this.storage.get('TOKEN').then((val) => {
+    this._storage.get('TOKEN').then((val) => {
       console.log('Your token is', val);
+      this.token = val;
     });
 
-    this.storage.get('REFRESH_TOKEN').then((val) => {
+    this._storage.get('REFRESH_TOKEN').then((val) => {
       console.log('Your REFRESH_Token is', val);
+      this.token = val;
     });
   }
 

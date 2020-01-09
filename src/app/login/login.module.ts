@@ -29,7 +29,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     ReactiveFormsModule,
   ],
-  providers: [FormBuilder, StorageService, AuthService, HttpService],
+  providers: [FormBuilder],
   declarations: [LoginPage]
 })
 export class LoginPageModule {}

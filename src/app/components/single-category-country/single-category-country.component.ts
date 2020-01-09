@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Category } from '../../models/category';
 
 @Component({
   selector: 'app-single-category-country',
@@ -8,8 +9,10 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class SingleCategoryCountryComponent implements OnInit {
 
-  @Input() carta: any [];
-  constructor() { }
+  @Input() carta: Category [];
+  constructor() {
+
+  }
 
   ngOnInit() {}
 

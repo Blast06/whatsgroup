@@ -4,7 +4,7 @@
       <ion-menu-button color="light"></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Groups
+      Groupos
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,15 +13,16 @@
 
   <div class="bg-gradient ion-padding-vertical">
 
-    <div class="text-white text-title ion-padding-horizontal">Things to <strong>complete</strong> your <strong>hostel</strong> life</div>
+    <div class="text-white text-title ion-padding-horizontal">Encuentra tu grupo</div>
 
-    <div class="ion-padding-horizontal">
-      <ion-searchbar class="searchbar-white" placeholder="Search Categories" [debounce]="250" mode="ios"></ion-searchbar>
-    </div>
+    <!-- <div class="ion-padding-horizontal">
+      <ion-searchbar class="searchbar-white" placeholder="Search Categories" [debounce]="250" mode="ios">
+      </ion-searchbar>
+    </div> -->
 
   </div>
-  
-  <div class="ion-padding">
+
+  <!-- <div class="ion-padding">
 
     <ion-grid class="ion-no-padding">
       <ion-row>
@@ -29,63 +30,115 @@
           <div class="text-12pt">Categorias</div>
         </ion-col>
         <ion-col size="6">
-          <div class="text-10pt ion-text-right text-warning" [routerLink]="['/chooser']" >See all</div>
+          <div class="text-10pt ion-text-right text-warning" [routerLink]="['/chooser']">See all</div>
         </ion-col>
       </ion-row>
 
       <ion-row class="ion-no-padding">
 
         <ion-col size="3" *ngFor="let group of groups">
-            <app-category-card [category]="group"></app-category-card>
+          <app-category-card [category]="group"></app-category-card>
         </ion-col>
 
       </ion-row>
     </ion-grid>
 
-  </div>
+  </div> -->
 
-  <hr class="hr">
+  <!-- <hr class="hr"> -->
 
   <div class="ion-padding">
     <ion-grid class="ion-no-padding">
       <ion-row>
         <ion-col size="6">
-          <div class="text-12pt">Recommended</div>
+          <div class="text-12pt">Ultimos grupos</div>
         </ion-col>
         <ion-col size="6">
-          <div class="text-10pt ion-text-right text-warning" [routerLink]="['/list']" >See all</div>
+          <div class="text-10pt ion-text-right text-warning" [routerLink]="['/list']">Ver mas</div>
         </ion-col>
       </ion-row>
     </ion-grid>
 
-    <ion-grid class="ion-no-padding">
+    <!-- <ion-grid class="ion-no-padding">
       <ion-row>
 
-        <!-- as is until it gets dynamic -->
+        as is until it gets dynamic
         <ion-col size="6" class="ion-no-padding">
-          <app-group-card [routerLink]="['/single-group']" ></app-group-card>
+          <app-group-card [routerLink]="['/single-group']"></app-group-card>
         </ion-col>
 
         <ion-col size="6" class="ion-no-padding">
-          <app-group-card [routerLink]="['/single-group']" ></app-group-card>
+          <app-group-card [routerLink]="['/single-group']"></app-group-card>
         </ion-col>
 
         <ion-col size="6" class="ion-no-padding">
-          <app-group-card [routerLink]="['/single-group']" ></app-group-card>
+          <app-group-card [routerLink]="['/single-group']"></app-group-card>
         </ion-col>
-        
+
         <ion-col size="6" class="ion-no-padding">
-          <app-group-card [routerLink]="['/single-group']" ></app-group-card>
+          <app-group-card [routerLink]="['/single-group']"></app-group-card>
         </ion-col>
 
       </ion-row>
-    </ion-grid>
+    </ion-grid> -->
+
+
+    <ion-list lines="none" class="list-transactions">
+
+      <ion-item class="border">
+        <ion-thumbnail slot="start">
+          <img
+            src="https://images.vexels.com/media/users/3/129234/isolated/preview/73970c892d748c7507db8e10d71535b0-icono-del-logo-de-apple-by-vexels.png" />
+        </ion-thumbnail>
+        <ion-label>
+          <h2>Apple</h2>
+          <p>Tech and entertaiment</p>
+          <p class="item-end">Pais - Amistad</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <img src="https://tacitcorporation.com/wp-content/uploads/2019/04/Uber-Eats-4.png" />
+        </ion-thumbnail>
+        <ion-label>
+          <h2>Uber eats</h2>
+          <p>Food and restaurants</p>
+          <p class="item-end">Pais - Amistad</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <img
+            src="https://images.vexels.com/media/users/3/129234/isolated/preview/73970c892d748c7507db8e10d71535b0-icono-del-logo-de-apple-by-vexels.png" />
+        </ion-thumbnail>
+        <ion-label>
+          <h2>Apple</h2>
+          <p>Tech and entertaiment</p>
+          <p class="item-end">Pais - Amistad</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <img src="https://tacitcorporation.com/wp-content/uploads/2019/04/Uber-Eats-4.png" />
+        </ion-thumbnail>
+        <ion-label>
+          <h2>Uber eats</h2>
+          <p>Food and restaurants</p>
+          <p class="item-end">Pais - Amistad</p>
+        </ion-label>
+      </ion-item>
+
+    </ion-list>
+
   </div>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" [routerLink]="['/upload']">
-      <ion-fab-button color="primary" size="small">
-        <ion-icon name="add"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
-  
+    <ion-fab-button color="primary" size="small">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
 </ion-content>

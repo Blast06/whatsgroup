@@ -8,7 +8,7 @@ const { Storage } = Plugins;
 })
 export class StorageService {
     constructor(private platform: Platform,
-                private storage: Storage) { }
+    ) { }
 
     // Store the value
     async store(storageKey: string, value: any) {
@@ -34,19 +34,11 @@ export class StorageService {
         await Storage.clear();
     }
     addCredentials(username: string, password: string, token: string, refreshToken: string) {
-        if (this.platform.is('mobileweb')) {
-        }
 
-        if (this.platform.is('mobileweb')) {
-            console.log('guardando aqui..');
-            this.storage.set('username', username);
-            this.storage.set('password', password);
-            this.storage.set('TOKEN', token);
-            this.storage.set('EFRESH_TOKEN', refreshToken);
-        } else {
-            this.store(AuthConstants.TOKEN, token);
-            this.store(AuthConstants.REFRESH_TOKEN, refreshToken);
-        }
-
+        console.log('guardando aqui..');
+        this.store(AuthConstants.USERNAME, username);
+        this.store(AuthConstants.PASSWORD, password);
+        this.store(AuthConstants.TOKEN, token);
+        this.store(AuthConstants.REFRESH_TOKEN, refreshToken);
     }
 }
