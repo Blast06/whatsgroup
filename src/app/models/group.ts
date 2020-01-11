@@ -3,6 +3,6 @@ export class Group {
     type: string;
     description: string;
     image?: string;
-    creacion: number;
+    creation: number;
 
 }

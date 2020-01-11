@@ -1,0 +1,36 @@
+<!-- <div class="user-friends-section">
+  <ion-row class="heading-row">
+    <a class="heading-call-to-action">See all</a>
+  </ion-row>
+  <ion-row class="friends-row">
+    <ion-col class="friend-item" size="2" *ngFor="let group of groups">
+      <app-aspect-ratio [ratio]="{w: 1, h: 1}">
+        <app-image-shell class="friend-picture" [src]="group.image"></app-image-shell>
+      </app-aspect-ratio>
+      <span class="friend-name">
+        <app-text-shell [data]="group.title"></app-text-shell>
+      </span>
+    </ion-col>
+  </ion-row>
+</div> -->
+
+<ion-grid class="ion-no-padding">
+  <ion-row>
+    <ion-col size="6">
+      <!-- <div class="text-primary text-bold text-11pt">Members selected</div> -->
+    </ion-col>
+    <ion-col size="6" tappable>
+      <div class="text-primary ion-text-right text-10pt ion-padding-end">See all</div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-grid class="ion-padding grid-members">
+  <ion-row>
+    <ion-col tappable *ngFor="let group of groups">
+      <ion-avatar>
+        <img [src]="group.image" />
+      </ion-avatar>
+    </ion-col>
+  </ion-row>
+</ion-grid>

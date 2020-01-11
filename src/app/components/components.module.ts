@@ -7,6 +7,8 @@ import { CategoryCardComponent } from './category-card/category-card.component';
 import { RelatedsComponent } from './relateds/relateds.component';
 import { CountryCategoryComponent } from './country-category/country-category.component';
 import { SingleCategoryCountryComponent } from './single-category-country/single-category-country.component';
+import { SlideshowBackdropComponent } from './slideshow-backdrop/slideshow-backdrop.component';
+import { ShellModule } from '../shell/shell.module';
 
 
 
@@ -16,18 +18,21 @@ import { SingleCategoryCountryComponent } from './single-category-country/single
     CategoryCardComponent,
     RelatedsComponent,
     CountryCategoryComponent,
-    SingleCategoryCountryComponent
+    SingleCategoryCountryComponent,
+    SlideshowBackdropComponent
   ],
   exports: [
     GroupCardComponent,
     CategoryCardComponent,
     RelatedsComponent,
     CountryCategoryComponent,
-    SingleCategoryCountryComponent
+    SingleCategoryCountryComponent,
+    SlideshowBackdropComponent
   ],
   imports: [
     CommonModule,
-    IonicModule
+    IonicModule,
+    ShellModule,
   ]
 })
 export class ComponentsModule { }

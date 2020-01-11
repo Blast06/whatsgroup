@@ -18,6 +18,7 @@ import { LoginPageModule } from './login/login.module';
 import { AuthService } from './services/auth.service';
 import { Storage } from '@capacitor/core';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { ShellModule } from './shell/shell.module';
 
 
 
@@ -30,11 +31,11 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
     IonicStorageModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
+    ShellModule,
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    NativeStorage,
     httpInterceptorsProviders,
     HttpService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

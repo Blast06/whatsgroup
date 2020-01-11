@@ -6,48 +6,41 @@
 
 <ion-content fullscreen>
 
-    <ion-card>
-        <img src="http://lorempixel.com/400/200/" />
-        <ion-card-header>
-          <div class="cats">
-            <ion-card-subtitle mode="ios">Categoria</ion-card-subtitle>
-            <ion-card-subtitle mode="ios">Pais</ion-card-subtitle>
-          </div>
-          <ion-card-title>Titulo</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          Esta es una descripcion kmfdiosa mespta fpomfpdos poewr po fnimfosa podfami nufdsian pmfodspma nuignidf
-        </ion-card-content>
-        <ion-button (click)="goTo()"  expand="block">
-          Ir a grupo
-          <ion-icon slot="icon-only" name="share-alt"></ion-icon>
-        </ion-button>
-      </ion-card>
+  <ion-card>
+    <img src="http://lorempixel.com/400/200/" />
+    <ion-card-header>
+      <div class="cats">
+        <ion-card-subtitle mode="ios">Categoria</ion-card-subtitle>
+        <ion-card-subtitle mode="ios">Pais</ion-card-subtitle>
+      </div>
+      <ion-card-title>Titulo</ion-card-title>
 
+      <div class="flex">
+        <ion-chip mode="ios" color="secondary">
+          <ion-label color="dark">Icon Chip</ion-label>
+        </ion-chip>
+        <ion-chip mode="ios" color="secondary">
+          <ion-label color="dark">Icon Chip</ion-label>
+        </ion-chip>
+        <ion-chip mode="ios" color="secondary">
+          <ion-label color="dark">Icon Chip</ion-label>
+        </ion-chip>
+      </div>
 
-      <h4>Grupos relacionados</h4>
+    </ion-card-header>
+    <ion-card-content>
+      Esta es una descripcion kmfdiosa mespta fpomfpdos poewr po fnimfosa podfami nufdsian pmfodspma nuignidf
+    </ion-card-content>
+    <ion-button (click)="goTo()" expand="block">
+      Ir a grupo
+      <ion-icon slot="icon-only" name="share-alt"></ion-icon>
+    </ion-button>
+  </ion-card>
 
-      <!-- TODO - IMPLEMENT ION SLIDES HERE -->
-      <ion-slides class="ion-no-padding">
-        <ion-row class="row-cards">
-          <app-relateds></app-relateds>
-          <app-relateds></app-relateds>
-          <app-relateds></app-relateds>
-          <app-relateds></app-relateds>
-          <app-relateds></app-relateds>
-          <app-relateds></app-relateds>
-          <app-relateds></app-relateds>
-          <app-relateds></app-relateds>
-          <app-relateds></app-relateds>
-          <app-relateds></app-relateds>
-          <app-relateds></app-relateds>
-          <app-relateds></app-relateds>
-          <app-relateds></app-relateds>
-          <app-relateds></app-relateds>
-          <app-relateds></app-relateds>
-          <app-relateds></app-relateds>
-          <app-relateds></app-relateds>
-        </ion-row>
-      </ion-slides>
-  
+  <br>
+  <br>
+  <h4 padding>Grupos relacionados</h4>
+
+  <app-slideshow-backdrop [groups]="groups" ></app-slideshow-backdrop>
+
 </ion-content>
