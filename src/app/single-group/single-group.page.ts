@@ -9,48 +9,56 @@ import { Group } from '../models/group';
 export class SingleGroupPage implements OnInit {
 
   
+  show = true;
   groups: Group[] = [
     {
-      title: 'groidfosa',
+      name: 'groidfosa',
       image: 'http://lorempixel.com/400/200/',
       type: "nenas",
       description: "fmoimfdisoamofsd",
-      creation: 45
+      creation: 45,
+      link: 'www.google.com'
+
     },
     {
-      title: 'groidfosa',
+      name: 'groidfosa',
       image: 'http://lorempixel.com/400/200/',
       type: "nenas",
       description: "fmoimfdisoamofsd",
-      creation: 45
+      creation: 45,
+      link: 'www.google.com'
     },
     {
-      title: 'groidfosa',
+      name: 'groidfosa',
       image: 'http://lorempixel.com/400/200/',
       type: "nenas",
       description: "fmoimfdisoamofsd",
-      creation: 45
+      creation: 45,
+      link: 'www.google.com'
     },
     {
-      title: 'groidfosa',
+      name: 'groidfosa',
       image: 'http://lorempixel.com/400/200/',
       type: 'nenas',
       description: 'fmoimfdisoamofsd',
-      creation: 45
+      creation: 45,
+      link: 'www.google.com'
     },
     {
-      title: 'groidfosa',
+      name: 'groidfosa',
       image: 'http://lorempixel.com/400/200/',
       type: 'nenas',
       description: 'fmoimfdisoamofsd',
-      creation: 45
+      creation: 45,
+      link: 'www.google.com'
     },
     {
-      title: 'groidfosa',
+      name: 'groidfosa',
       image: 'http://lorempixel.com/400/200/',
       type: 'nenas',
       description: 'fmoimfdisoamofsd',
-      creation: 45
+      creation: 45,
+      link: 'www.google.com'
     }
   ];
 
@@ -60,6 +68,9 @@ export class SingleGroupPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.show = !this.show;
+    }, 8000);
   }
 
   goTo() {

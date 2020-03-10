@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../services/http.service';
 
 @Component({
   selector: 'app-list',
@@ -7,7 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListPage implements OnInit {
   private selectedItem: any;
-  private icons = [
+
+  groups: any;
+  route: string;
+
+  slideOpts = {
+    slidesPerView: 1.3,
+    coverflowEffect: {
+      rotate: 50,
+      stretch: 3,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true,
+    }
+  };
+  public icons = [
     'flask',
     'wifi',
     'beer',
@@ -20,7 +35,7 @@ export class ListPage implements OnInit {
     'build'
   ];
   public items: Array<{ title: string; note: string; icon: string }> = [];
-  constructor() {
+  constructor(private _http: HttpService) {
     for (let i = 1; i < 11; i++) {
       this.items.push({
         title: 'Item ' + i,
@@ -28,6 +43,23 @@ export class ListPage implements OnInit {
         icon: this.icons[Math.floor(Math.random() * this.icons.length)]
       });
     }
+
+    _http.get('/api/countries').then( (data: any) => {
+      console.log('countries :', JSON.parse(data.data));
+    });
+    _http.get('/api/groups').then( (data: any) => {
+      this.groups = data;
+      console.log('groups :', JSON.parse(data.data));
+    });
+
+    _http.get('/api/tags').then( (data: any) => {
+      console.log('tags :', JSON.parse(data.data));
+    });
+    _http.get('/api/tags').then( (data: any) => {
+      console.log('tags :', data);
+    });
+
+
   }
 
   ngOnInit() {

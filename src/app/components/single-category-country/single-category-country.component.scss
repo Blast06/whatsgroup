@@ -1,0 +1,11 @@
+ion-card {
+    width: 370px;
+    height: 100px;
+}
+
+ion-card-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}

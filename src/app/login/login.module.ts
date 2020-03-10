@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
 import { StorageService } from '../services/storage.service';
 import { HttpService } from '../services/http.service';
+import { ComponentsModule } from '../components/components.module';
 
 
 const routes: Routes = [
@@ -27,7 +28,9 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
+    FormsModule,
     ReactiveFormsModule,
+    ComponentsModule
   ],
   providers: [FormBuilder],
   declarations: [LoginPage]

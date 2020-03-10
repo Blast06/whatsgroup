@@ -1,0 +1,20 @@
+/* Style componets 1
+===========================*/
+
+strong {
+  display: block;
+  clear: both;
+}
+
+.margin-top {
+  --margin-top: var(--ion-margin, 32px);
+  margin-top: var(--ion-margin, 32px);
+}
+
+a {
+  color: var(--text-color-secondary, #191b1c);
+  font-weight: bold;
+}
+.button-color{
+  background-color: var(--ion-color-warning-tint2);
+}

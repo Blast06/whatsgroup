@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { IonicModule } from '@ionic/angular';
@@ -9,6 +9,9 @@ import { CountryCategoryComponent } from './country-category/country-category.co
 import { SingleCategoryCountryComponent } from './single-category-country/single-category-country.component';
 import { SlideshowBackdropComponent } from './slideshow-backdrop/slideshow-backdrop.component';
 import { ShellModule } from '../shell/shell.module';
+import { SignupPage } from './signup-1/signup-1.page';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -19,7 +22,8 @@ import { ShellModule } from '../shell/shell.module';
     RelatedsComponent,
     CountryCategoryComponent,
     SingleCategoryCountryComponent,
-    SlideshowBackdropComponent
+    SlideshowBackdropComponent,
+    SignupPage
   ],
   exports: [
     GroupCardComponent,
@@ -27,12 +31,15 @@ import { ShellModule } from '../shell/shell.module';
     RelatedsComponent,
     CountryCategoryComponent,
     SingleCategoryCountryComponent,
-    SlideshowBackdropComponent
+    SlideshowBackdropComponent,
+    SignupPage
   ],
   imports: [
     CommonModule,
     IonicModule,
     ShellModule,
-  ]
+    ReactiveFormsModule
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ComponentsModule { }

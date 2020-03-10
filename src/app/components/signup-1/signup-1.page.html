@@ -1,0 +1,128 @@
+<!-- Signup - Components 1 -->
+<ion-page class="ion-page">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title *ngIf="data != null">{{data.headerTitle}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <!--- Content -->
+  <ion-content>
+    <!-- login -->
+    <ion-grid *ngIf="!signup">
+      <ion-row>
+        <ion-col size="12">
+          <!-- Big Title-->
+          <h1 class="size-xl ion-padding-start"><strong>{{data.title}}</strong>hola</h1>
+        </ion-col>
+        <ion-col size="12">
+          <form [formGroup]="loginForm"  (ngSubmit)="logForm()" >
+            <ion-row>
+              <ion-col size="12">
+                <!-- Input Username -->
+                <ion-item lines="none" class="box-shadow border-radius">
+                  <ion-input formControlName="username" type="text" [placeholder]="data.labelUsername"
+                  ></ion-input>
+                  <ion-label error-field no-margin *ngIf="!isUsernameValid">
+                    {{data.errorUser}}</ion-label>
+                </ion-item>
+                <!-- Input Password -->
+                <ion-item lines="none" class="box-shadow margin-top border-radius">
+                  <ion-input formControlName="password" type="password" [placeholder]="data.labelPassword"
+                   ></ion-input>
+                  <ion-icon icon name="eye-off" item-right></ion-icon>
+                  <ion-label error-field no-margin *ngIf="!isPasswordValid">
+                    {{data.errorPassword}}</ion-label>
+                </ion-item>
+              </ion-col>
+              <ion-col size="12" class="margin-top">
+                <!-- Button Login -->
+                <ion-button expand="full" type="submit"  class="default-button box-shadow" [disabled]="!loginForm.valid" >
+                  {{data.loginButton}}
+                </ion-button>
+              </ion-col>
+            </ion-row>
+            <!-- Description -->
+            <ion-row class="ion-text-center">
+              <ion-col size="12" class="ion-no-padding">
+                <!-- Button Signup Now -->
+                <p size-xs>Don’t have an account? <a (click)="onSignUpFunc()">
+                  {{data.signup}}</a></p>
+                <!-- Button Reset Your Password -->
+                <p size-xs>Forgot Password? <a (click)="onResetPasswordFunc()">
+                  {{data.resetPassword}}</a></p>
+              </ion-col>
+            </ion-row>
+          </form>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- signup -->
+    <ion-grid *ngIf="signup">
+      <ion-row>
+        <ion-col size="12">
+          <!-- Big Title-->
+          <h1 class="size-xl ion-padding-start"><strong>{{data.title}}</strong>hola</h1>
+        </ion-col>
+        <ion-col size="12">
+          <form [formGroup]="signUpForm"  (ngSubmit)="registerForm()" >
+            <ion-row>
+              <ion-col size="12">
+                <!-- Input Username -->
+                <ion-item lines="none" class="box-shadow border-radius">
+                  <ion-input formControlName="username" type="text" [placeholder]="data.labelUsername"
+                  ></ion-input>
+                  <ion-label error-field no-margin *ngIf="!isUsernameValid">
+                    {{data.errorUser}}</ion-label>
+                </ion-item>
+                <!-- input email -->
+                <ion-item lines="none" class="box-shadow margin-top border-radius">
+                  <ion-input formControlName="email" type="text" [placeholder]="data.email"
+                  ></ion-input>
+                  <ion-label error-field no-margin *ngIf="!isUsernameValid">
+                    {{data.errorUser}}</ion-label>
+                </ion-item>
+                <!-- Input Password -->
+                <ion-item lines="none" class="box-shadow margin-top border-radius">
+                  <ion-input formControlName="password" type="password" [placeholder]="data.labelPassword"
+                   ></ion-input>
+                  <ion-icon icon name="eye-off" item-right></ion-icon>
+                  <ion-label error-field no-margin *ngIf="!isPasswordValid">
+                    {{data.errorPassword}}</ion-label>
+                </ion-item>
+                <!-- password confirmation -->
+                <ion-item lines="none" class="box-shadow margin-top border-radius">
+                  <ion-input formControlName="passwordConfirmation" type="password" [placeholder]="data.labelPassword"
+                   ></ion-input>
+                  <ion-icon icon name="eye-off" item-right></ion-icon>
+                  <ion-label error-field no-margin *ngIf="!isPasswordValid">
+                    {{data.errorPassword}}</ion-label>
+                </ion-item>
+              </ion-col>
+              <ion-col size="12" class="margin-top">
+                <!-- Button Login -->
+                <ion-button expand="full" type="submit"  class="default-button box-shadow" [disabled]="!signUpForm.valid" >
+                  {{data.loginButton}}
+                </ion-button>
+              </ion-col>
+            </ion-row>
+            <!-- Description -->
+            <ion-row class="ion-text-center">
+              <ion-col size="12" class="ion-no-padding">
+                <!-- Button Signup Now -->
+                <p size-xs>Have an account? <a (click)="onLoginFunc()">
+                  {{data.login}}</a></p>
+                <!-- Button Reset Your Password -->
+                <p size-xs>Forgot Password? <a (click)="onResetPasswordFunc()">
+                  {{data.resetPassword}}</a></p>
+              </ion-col>
+              
+            </ion-row>
+          </form>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ion-page>

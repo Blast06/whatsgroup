@@ -1,13 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Plugins } from '@capacitor/core';
-import { Platform } from '@ionic/angular';
-import { AuthConstants } from '../config/auth-constant';
+import { Platform, Events } from '@ionic/angular';
+import { Constants } from '../config/constants';
+import { AppComponent } from '../app.component';
+import { Router } from '@angular/router';
+
 const { Storage } = Plugins;
 @Injectable({
     providedIn: 'root'
 })
 export class StorageService {
     constructor(private platform: Platform,
+                private constant: Constants,
+                private events: Events,
+                private router: Router,
+                
     ) { }
 
     // Store the value
@@ -32,13 +39,15 @@ export class StorageService {
     // Clear storage
     async clear() {
         await Storage.clear();
+        this.events.publish('user:menu');
     }
     addCredentials(username: string, password: string, token: string, refreshToken: string) {
 
         console.log('guardando aqui..');
-        this.store(AuthConstants.USERNAME, username);
-        this.store(AuthConstants.PASSWORD, password);
-        this.store(AuthConstants.TOKEN, token);
-        this.store(AuthConstants.REFRESH_TOKEN, refreshToken);
+        this.store(this.constant.USERNAME, username);
+        this.store(this.constant.PASSWORD, password);
+        this.store(this.constant.TOKEN, token);
+        this.store(this.constant.REFRESH_TOKEN, refreshToken);
+
     }
 }

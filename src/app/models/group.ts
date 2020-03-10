@@ -1,8 +1,9 @@
 export class Group {
-    title: string;
-    type: string;
+    name: string;
     description: string;
     image?: string;
+    link: string;
+    type: string;
     creation: number;
 
 }

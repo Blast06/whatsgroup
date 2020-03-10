@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, Output, EventEmitter } from '@angular/core';
+import { Events } from '@ionic/angular';
 
 
 @Component({
@@ -31,8 +32,8 @@ export class HomePage implements OnChanges {
   ];
 
 
-  constructor() { 
-
+  constructor(private events: Events) {
+    events.subscribe('user:menu');
     this.data = {
 
       'items': [

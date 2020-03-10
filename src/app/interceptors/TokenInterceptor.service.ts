@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpEvent, HttpHandler, HttpErrorResponse, HttpRequest } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { StorageService } from '../services/storage.service';
-import { AuthConstants } from '../config/auth-constant';
+import { Constants } from '../config/constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TokenInterceptorService implements HttpInterceptor, CanActivate {
+
+  token: string;
   canActivate(): Promise<boolean> {
     return new Promise(resolve => {
       this._storage
-        .get(AuthConstants.TOKEN)
+        .get(this.CONSTANTS.TOKEN)
         .then(res => {
           if (res) {
             resolve(true);
@@ -33,22 +34,31 @@ export class TokenInterceptorService implements HttpInterceptor, CanActivate {
   }
 
 
-  constructor(private _storage: StorageService, public router: Router) { }
+  constructor(private _storage: StorageService, public router: Router, private CONSTANTS: Constants) {
+
+
+    _storage.get(this.CONSTANTS.TOKEN).then((token: any) => this.token = token);
+  }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
+    if (!this.CONSTANTS.AUTH_URL) {
+       req = req.clone({
+        setHeaders: {
+          Accept: 'Application/json',
+          Authorization: `Bearer ${this.token}`,
+          'Content-Type': 'Application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With',
+        }
+      });
 
 
+    } else {
+      console.log('entro aqui token else interceptor');
 
-    console.log('login from token interceptor');
+    }
 
-    const reqClone = req.clone({
-      setHeaders: {
-        'Accept': 'Application/json',
-        'Content-Type': 'Application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
-    });
 
-    return next.handle(reqClone);
+    return next.handle(req);
   }
 }

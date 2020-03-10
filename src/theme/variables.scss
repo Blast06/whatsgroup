@@ -45,6 +45,9 @@
   --ion-color-warning-contrast-rgb: 255, 255, 255;
   --ion-color-warning-shade: #e0b500;
   --ion-color-warning-tint: #ffd31a;
+  --ion-color-warning-tint2:  rgb(255,171,9);
+  
+
 
   /** danger **/
   --ion-color-danger: #f04141;
@@ -77,4 +80,276 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+}
+
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+/** Ionic CSS Variables **/
+:root {
+  /* FONT SIZE
+  =============================*/
+  --fallback-color: red;
+  --h1-font-size: 32px;
+  --h2-font-size: 20px;
+  --h3-font-size: 16px;
+  --h4-font-size: 14px;
+  --h5-font-size: 12px;
+  --text-font-size: 8px;
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+  }
+
+  /* SPAN SIZE
+  =============================*/
+  --span-small-size: 8px;
+  --span-medium-size: 12px;
+  --span-big-size: 16px;
+
+  /* SETTINGS BACKGROUND
+  =============================*/
+  --background-primary: #757b7e;
+  --background-secundar: #ffffff;
+  --background-accent: #7cbe45;
+
+  /* SETTINGS COLOR TEXT
+  =============================*/
+  --text-color-primary: #ffffff;
+  --text-color-secondary: #191b1c;
+  --text-color-contrast: #757b7e;
+
+  /* SETTINGS COLOR ICON COLOR
+  =============================*/
+  --icon-color: #757b7e;
+  /* SETTINGS RIPPLE COLOR
+  =============================*/
+  --ripple-color: transparent !important;
+  --background-hover: transparent !important;
+  --background-focused: transparent !important;
+  --background-activated: transparent !important;
+}
+
+walkthrought-1 {
+  .swiper-pagination.swiper-pagination-bullets {
+    bottom: 35px !important;
+
+    .swiper-pagination-bullet-active {
+      --bullet-background: #fff !important;
+      background: var(--bullet-background);
+    }
+  }
+}
+
+/* Settings Button
+=======================================================
+=======================================================*/
+
+ion-button {
+  --background-activated: transparent;
+  --background-focused: var(--background-accent);
+  --background-hover: var(--background-accent);
+  --ripple-color: transparent;
+}
+
+.default-button {
+  --background-hover: var(--background-accent) !important;
+  --background-activated: var(--background-accent) !important;
+  --color: var(--text-color-primary, #ffffff);
+  --background: var(--ion-color-warning-tint2);
+  --padding-top: 18px;
+  --padding-bottom: 18px;
+  font-size: 14px;
+  font-weight: 400;
+  height: auto;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.button-clear {
+    --color: var(--text-color-primary, #ffffff);
+    --background: transparent;
+    --background-hover: transparent !important;
+}
+
+.button-icon {
+  --color: var(--text-color-primary, #ffffff);
+  --background: var(--background-accent);
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  height: auto;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+
+/* FONTE SIZE AND COLOR
+==============================================
+==============================================*/
+.text-color-primary {
+  color: var(--text-color-primary, #ffffff) !important;
+}
+
+
+
+.size-xl {
+  font-size: var(--h1-font-size, 32px) !important;
+  line-height: normal !important;
+  color: var(--text-color-secondary, #191b1c);
+}
+
+.size-lg {
+  font-size: var(--h2-font-size, 20px) !important;
+  line-height: normal !important;
+}
+
+.size-md {
+  font-size: var(--h3-font-size, 16px) !important;
+  line-height: normal !important;
+  color: var(--text-color-secondary, #191b1c);
+}
+
+.size-xs {
+  font-size: var(--h4-font-size, 14px) !important;
+  line-height: 21px !important;
+  color: var(--text-color-secondary, #191b1c);
+}
+
+.size-sm {
+  font-size: var(--h5-font-size, 12px) !important;
+  line-height: normal !important;
+  color: var(--text-color-contrast, #757b7e) !important;
+}
+
+.size-description {
+  font-size: var(--text-font-size, 8px) !important;
+  line-height: normal !important;
+  color: var(--text-color-secondary, #191b1c);
+}
+
+.text-nowrap {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+/*  5# Settings Span Section
+================================================
+================================================*/
+.span-small {
+  font-size: var(--span-small-size, 8px);
+  color: var(--text-color-contrast, #757b7e);
+}
+
+.span-medium {
+  font-size: var(--span-medium-size, 12px);
+  color: var(--text-color-contrast, #757b7e);
+  line-height: 22px;
+}
+
+.span-big {
+  font-size: var(--span-big-size, 16px);
+  color: var(--text-color-contrast, #757b7e);
+  font-weight: bold;
+}
+
+ion-badge {
+  --background: var(--background-accent, #7cbe45);
+  font-weight: normal;
+}
+
+/* Settings TOOLBAR
+=======================================================
+=======================================================*/
+ion-toolbar {
+  ion-title {
+    color: var(--text-color-contrast, #757b7e);
+    font-size: 14px;
+  }
+
+  ion-icon {
+    color: var(--icon-color, #757b7e);
+  }
+}
+
+.icon {
+  font-size: 24px;
+  color: var(--icon-color, #757b7e);
+}
+/* Settings RANGE
+=======================================================
+=======================================================*/
+ion-range {
+  --bar-background-active: var(--background-accent, #7cbe45);
+}
+/* Settings Input
+=======================================================
+=======================================================*/
+
+input {
+  --padding-top: 18px;
+  --padding-bottom: 18px;
+}
+/* Default Overview Ionic Section
+=======================================================
+=======================================================*/
+
+ion-item {
+  --background-activated: transparent;
+  --background-focused: transparent;
+  --background-hover: transparent;
+  --ripple-color: transparent;
+}
+
+ion-content {
+  --ion-background-color: var(--background-secundar, #ffffff);
+}
+
+.background-size {
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+.box-shadow-none {
+  box-shadow: none !important;
+}
+
+.box-shadow {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+.header-md:after {
+  background-image: none;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+img,
+ion-img {
+  object-fit: cover;
+}
+
+.clearfix {
+  clear: both;
+  display: block;
+}
+
+.font-light {
+  font-weight: 300 !important;
+}
+
+.font-regular {
+  font-weight: 400;
+}
+
+.font-bold {
+  font-weight: 660 !important;
+}
+
+.transparent {
+  --background: transparent;
+}
+
+.border-radius {
+  --border-radius: 4px;
+  border-radius: var(--border-radius, 4px);
 }

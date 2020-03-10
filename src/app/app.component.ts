@@ -1,8 +1,18 @@
 import { Component } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { Platform, Events } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+
+import { Plugins } from '@capacitor/core';
+import { Constants } from './config/constants';
+import { StorageService } from './services/storage.service';
+import { AuthService } from './services/auth.service';
+import { Router } from '@angular/router';
+
+const { Storage } = Plugins;
+
+
 
 @Component({
   selector: 'app-root',
@@ -10,6 +20,10 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+
+  pages: Array<{ title: string, url: string, icon: string }>;
+  token: string;
+
   public appPages = [
     {
       title: 'Home',
@@ -31,25 +45,100 @@ export class AppComponent {
       url: '/about',
       icon: 'information-circle-outline'
     },
-    {
-      title: 'Subir grupo',
-      url: '/upload',
-      icon: 'cloud-upload'
-    }
   ];
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    public events: Events,
+    private CONSTANTS: Constants,
+    // tslint:disable-next-line:variable-name
+    private _storage: StorageService,
+    // tslint:disable-next-line:variable-name
+    private _auth: AuthService,
+    private router: Router
   ) {
     this.initializeApp();
+
+    this.update_menu();
+
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
+      this.statusBar.overlaysWebView(false);
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      // this._storage.get(this.CONSTANTS.USERNAME).then( (response2: any) => console.log('response2 :', response2));
+      // this._storage.get(this.CONSTANTS.PASSWORD).then( (response3: any) => console.log('response3 :', response3));
+
+      console.log('isAuthenticated');
+      console.log(this._auth.isAuthenticated());
+
+
     });
   }
+
+  update_menu() {
+
+
+    this._auth.ifLoggedIn().subscribe( (res: any) => {
+
+      if (res) {
+        this.appPages = [
+          {
+            title: 'Home',
+            url: '/home',
+            icon: 'home'
+          },
+          {
+            title: 'Buscar',
+            url: '/chooser',
+            icon: 'list'
+          },
+          {
+            title: 'About',
+            url: '/about',
+            icon: 'information-circle-outline'
+          },
+          {
+            title: 'Subir grupo',
+            url: '/upload',
+            icon: 'cloud-upload'
+          },
+          {
+            title: 'Salir',
+            url: '/logout',
+            icon: 'log-out'
+          }
+        ];
+      } else {
+        this.appPages = [
+          {
+            title: 'Login',
+            url: '/login',
+            icon: 'log-in'
+          },{
+            title: 'Home',
+            url: '/home',
+            icon: 'home'
+          },
+          {
+            title: 'Buscar',
+            url: '/chooser',
+            icon: 'list'
+          },
+          {
+            title: 'About',
+            url: '/about',
+            icon: 'information-circle-outline'
+          },
+        ];
+      }
+    });
+
+  }
+
 }
