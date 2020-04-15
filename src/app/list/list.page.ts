@@ -48,8 +48,10 @@ export class ListPage implements OnInit {
       console.log('countries :', JSON.parse(data.data));
     });
     _http.get('/api/groups').then( (data: any) => {
-      this.groups = data;
-      console.log('groups :', JSON.parse(data.data));
+      // tslint:disable-next-line:no-string-literal
+      this.groups = JSON.parse(data.data);
+      console.log('this.groups :', this.groups);
+      console.log('groups :', JSON.parse(data));
     });
 
     _http.get('/api/tags').then( (data: any) => {

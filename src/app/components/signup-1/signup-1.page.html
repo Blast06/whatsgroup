@@ -10,8 +10,12 @@
   </ion-header>
   <!--- Content -->
   <ion-content>
+    <div class="loading" *ngIf="show">
+      <app-loader></app-loader>
+      <h4>Ingresando...</h4>
+    </div>
     <!-- login -->
-    <ion-grid *ngIf="!signup">
+    <ion-grid *ngIf="!signup && !show">
       <ion-row>
         <ion-col size="12">
           <!-- Big Title-->
@@ -60,7 +64,7 @@
       </ion-row>
     </ion-grid>
     <!-- signup -->
-    <ion-grid *ngIf="signup">
+    <ion-grid *ngIf="signup && !show">
       <ion-row>
         <ion-col size="12">
           <!-- Big Title-->

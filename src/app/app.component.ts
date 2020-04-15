@@ -11,6 +11,10 @@ import { AuthService } from './services/auth.service';
 import { Router } from '@angular/router';
 
 const { Storage } = Plugins;
+const { AdMob } = Plugins;
+
+
+
 
 
 
@@ -59,6 +63,8 @@ export class AppComponent {
     private _auth: AuthService,
     private router: Router
   ) {
+    AdMob.initialize();
+
     this.initializeApp();
 
     this.update_menu();
@@ -69,10 +75,8 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.overlaysWebView(false);
       this.statusBar.styleDefault();
+      this.statusBar.backgroundColorByHexString('#ffce00');
       this.splashScreen.hide();
-
-      // this._storage.get(this.CONSTANTS.USERNAME).then( (response2: any) => console.log('response2 :', response2));
-      // this._storage.get(this.CONSTANTS.PASSWORD).then( (response3: any) => console.log('response3 :', response3));
 
       console.log('isAuthenticated');
       console.log(this._auth.isAuthenticated());
@@ -120,7 +124,8 @@ export class AppComponent {
             title: 'Login',
             url: '/login',
             icon: 'log-in'
-          },{
+          },
+          {
             title: 'Home',
             url: '/home',
             icon: 'home'

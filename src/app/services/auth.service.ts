@@ -96,8 +96,8 @@ export class AuthService {
       if (response) {
         res = response;
         console.log('response :', response);
-        console.log('this.authState.value :', this.authState.value);
         this.authState.next(true);
+        console.log('this.authState.value :', this.authState.value);
         console.log('resp', response);
 
       }

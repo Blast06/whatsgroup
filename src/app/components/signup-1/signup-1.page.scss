@@ -18,3 +18,10 @@ a {
 .button-color{
   background-color: var(--ion-color-warning-tint2);
 }
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+}

@@ -1,6 +1,20 @@
 import { Component, Input, OnChanges, Output, EventEmitter } from '@angular/core';
 import { Events } from '@ionic/angular';
 
+import { Plugins } from '@capacitor/core';
+import { AdOptions, AdSize, AdPosition } from '@rdlabo/capacitor-admob';
+
+
+const { AdMob } = Plugins;
+
+
+const options: AdOptions = {
+  adId: 'ca-app-pub-3940256099942544/6300978111',
+  adSize: AdSize.BANNER,
+  position: AdPosition.BOTTOM_CENTER,
+  margin: 0,
+};
+
 
 @Component({
   selector: 'app-home',
@@ -101,6 +115,30 @@ export class HomePage implements OnChanges {
   
     };
     console.log('this.data :', this.data);
+
+
+    // Show Banner Ad
+    AdMob.showBanner(options)
+    .then(
+        (value) => {
+            console.log(value);  // true
+        },
+        (error) => {
+            console.error(error); // show error
+        }
+    );
+
+
+    // Subscibe Banner Event Listener
+    AdMob.addListener('onAdLoaded', (info: boolean) => {
+      console.log("Banner Ad Loaded");
+ });
+
+    // Get Banner Size
+    AdMob.addListener('onAdSize', (info: boolean) => {
+          console.log(info);
+    });
+
   }
 
 

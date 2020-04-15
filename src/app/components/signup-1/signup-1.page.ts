@@ -17,6 +17,7 @@ export class SignupPage implements OnChanges {
     public loginForm: FormGroup;
     public signUpForm: FormGroup;
     public signup = false;
+    show = false;
 
 
 
@@ -67,6 +68,7 @@ export class SignupPage implements OnChanges {
     }
 
     logForm() {
+        this.show = true;
 
         console.log('this.user :', this.loginForm.value);
         this._auth.login(this.loginForm.value.username, this.loginForm.value.password).then(
@@ -82,7 +84,7 @@ export class SignupPage implements OnChanges {
                 if (loginData.access_token) {
                     this._storage.addCredentials(this.loginForm.value.username, this.loginForm.value.password,
                         loginData.access_token, loginData.refresh_token);
-                    this.events.publish('user:menu');
+                    this.show = false;
                     this.router.navigateByUrl('list');
                 }
             }

@@ -1,12 +1,45 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>upload</ion-title>
+    <ion-title>Crear grupo</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <h4>My credentials</h4>
-  <p>token: {{token}} </p>
+  <form #form="ngForm" (ngSubmit)="register(form)">
+    <ion-list lines="full" class="ion-no-margin ion-no-padding">
+      <ion-item>
+        <ion-label position="stacked">Nombre de grupo<ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input required type="text" formControlName="groupName"></ion-input>
+      </ion-item>
+
+      <!-- <ion-item>
+        <ion-label position="stacked">Last Name <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input required type="text" oninput="handleLastNameValue(event)"></ion-input>
+      </ion-item> -->
+
+      <ion-item>
+        <ion-label position="floating">Descripcion</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Address</ion-label>
+        <ion-input placeholder="Link de lgrupo"></ion-input>
+        ipick
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Notes</ion-label>
+        <ion-textarea></ion-textarea>
+      </ion-item>
+    </ion-list>
+
+    <div class="ion-padding">
+      <ion-button expand="block" type="submit" class="ion-no-margin">Create group</ion-button>
+    </div>
+  </form>
 
 </ion-content>

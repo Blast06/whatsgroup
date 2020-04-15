@@ -353,3 +353,15 @@ ion-img {
   --border-radius: 4px;
   border-radius: var(--border-radius, 4px);
 }
+
+.spinner {
+  --background: transparent;
+  width: 40px;
+  height: 40px;
+  margin: 100px auto;
+  background-color: #333;
+
+  border-radius: 100%;  
+  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+  animation: sk-scaleout 1.0s infinite ease-in-out;
+}

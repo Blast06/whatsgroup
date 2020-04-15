@@ -11,6 +11,7 @@ import { SlideshowBackdropComponent } from './slideshow-backdrop/slideshow-backd
 import { ShellModule } from '../shell/shell.module';
 import { SignupPage } from './signup-1/signup-1.page';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoaderComponent } from './loader/loader.component';
 
 
 
@@ -23,7 +24,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CountryCategoryComponent,
     SingleCategoryCountryComponent,
     SlideshowBackdropComponent,
-    SignupPage
+    SignupPage,
+    LoaderComponent
   ],
   exports: [
     GroupCardComponent,
@@ -32,7 +34,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CountryCategoryComponent,
     SingleCategoryCountryComponent,
     SlideshowBackdropComponent,
-    SignupPage
+    SignupPage,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
